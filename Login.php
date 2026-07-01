@@ -3,7 +3,6 @@
 include 'incluir/header.php';
 include 'incluir/navbar_logo.php';
 ?>
-<hr>
   <body>
     <div class="container">
         <h1>Ingresar</h1>
