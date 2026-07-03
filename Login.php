@@ -3,6 +3,12 @@
 include 'incluir/header.php';
 include 'incluir/navbar_logo.php';
 ?>
+/*herramientas
+sweetalert2
+databables
+chartjs
+highcharts
+*/
   <body>
     <div class="container">
         <h1>Ingresar</h1>
