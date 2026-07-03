@@ -1,5 +1,4 @@
 <?php
-
 include 'incluir/header.php';
 include 'incluir/navbar_accesos.php';
 ?>

@@ -2,6 +2,7 @@
 
 include 'incluir/header.php';
 include 'incluir/navbar_accesos.php';
+
 ?>
 <body>
    <div class="container d-flex align-items-end gap-3">
@@ -19,8 +20,12 @@ include 'incluir/navbar_accesos.php';
             </thead>
             <tbody>
                 <tr>
-                    <td>ejemplo</td>
-                    <td>ejemplo</td>
+                    <?php while ($fila = mysqli_fetch_array($result)) : ?>
+
+                        <td><?= $fila['remplazar_nombre_ubicacion'] ?></td>
+                        <td><a href="eliminar_php">x</a><a href="actualizar_php">actualizar</a></td>
+                    <?php endwhile; ?>
+
                 </tr>
             </tbody>
         </table>

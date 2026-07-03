@@ -13,7 +13,7 @@ include 'incluir/navbar_accesos.php';
     <div class="container">
         <hr>
     <div class="container mt-5">
-        <form class="w-50 mx-auto">
+        <form class="w-50 mx-auto"  action="script.php" method="POST">
             <div class="row mb-3 align-items-center">
                 <label for="nombre" class="col-sm-4 col-form-label">
                 Nombre

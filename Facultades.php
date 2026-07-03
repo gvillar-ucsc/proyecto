@@ -2,13 +2,16 @@
 
 include 'incluir/header.php';
 include 'incluir/navbar_accesos.php';
+
+$query = "SELECT * FROM remaplzar_tabla_facultades ";
+$result =  mysqli_query($conexion, $query);
 ?>
 <body>
    <div class="container d-flex align-items-end gap-3">
         <h1>Facultades</h1>
         <p>Listado</p>
         <div class="ms-auto">
-            <button class="btn btn-primary">Agregar</button>
+            <a href="FacultadesAgregaar.php"><button class="btn btn-primary">Agregar</button></a>
         </div>
     </div>
     <div class="container">
@@ -22,10 +25,14 @@ include 'incluir/navbar_accesos.php';
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>ejemplo</td>
-                    <td>ejemplo</td>
-                    <td>editar</td>
+                <tr>                    
+                    <?php while ($fila = mysqli_fetch_array($result)) : ?>
+
+                        <td><?= $fila['remplazar_clave_primaria_facultades'] ?></td>
+                        <td><?= $fila['remplazar_nombre_facultades'] ?></td>
+                        <td><a href="eliminar_php">x</a><a href="FacultadesAgregaar.php">actualizar</a></td>
+                    <?php endwhile; ?>
+
                 </tr>
             </tbody>
         </table>
