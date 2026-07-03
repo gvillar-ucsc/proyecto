@@ -3,7 +3,7 @@
 include 'incluir/header.php';
 include 'incluir/navbar_accesos.php';
 
-$query = "SELECT * FROM remaplzar_tabla_facultades ";
+$query = "SELECT * FROM facultades ";
 $result =  mysqli_query($conexion, $query);
 ?>
 <body>
@@ -28,8 +28,8 @@ $result =  mysqli_query($conexion, $query);
                 <tr>                    
                     <?php while ($fila = mysqli_fetch_array($result)) : ?>
 
-                        <td><?= $fila['remplazar_clave_primaria_facultades'] ?></td>
-                        <td><?= $fila['remplazar_nombre_facultades'] ?></td>
+                        <td><?= $fila['id_fac'] ?></td>
+                        <td><?= $fila['nombre_fac'] ?></td>
                         <td><a href="eliminar_php">x</a><a href="FacultadesAgregaar.php">actualizar</a></td>
                     <?php endwhile; ?>
 

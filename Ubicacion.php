@@ -22,7 +22,7 @@ include 'incluir/navbar_accesos.php';
                 <tr>
                     <?php while ($fila = mysqli_fetch_array($result)) : ?>
 
-                        <td><?= $fila['remplazar_nombre_ubicacion'] ?></td>
+                        <td><?= $fila['nombre_ubi'] ?></td>
                         <td><a href="eliminar_php">x</a><a href="actualizar_php">actualizar</a></td>
                     <?php endwhile; ?>
 

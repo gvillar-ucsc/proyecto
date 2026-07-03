@@ -2,7 +2,7 @@
 
 include 'incluir/header.php';
 include 'incluir/navbar_accesos.php';
-$query = "SELECT * FROM remaplzar_tabla_ubicacion ";
+$query = "SELECT * FROM ubicaciones ";
 $result =  mysqli_query($conexion, $query);
 
 
@@ -15,7 +15,7 @@ $result =  mysqli_query($conexion, $query);
 
                 <div class="col-md-4 text-center">
                     <a href="#" class="btn btn-outline-dark btn-menu">
-                        <?= $fila['remplazar_nombre_ubicacion'] ?>
+                        <?= $fila['nombre_ubi'] ?>
                     </a>
                 </div>
             <?php endwhile; ?>

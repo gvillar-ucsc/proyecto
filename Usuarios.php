@@ -3,7 +3,7 @@
 include 'incluir/header.php';
 include 'incluir/navbar_accesos.php';
 
-$query = "SELECT * FROM remaplzar_tabla_usuarios ";
+$query = "SELECT * FROM usuarios ";
 $result =  mysqli_query($conexion, $query);
 ?>
 <body>
@@ -28,8 +28,8 @@ $result =  mysqli_query($conexion, $query);
                 <tr>
                     <?php while ($fila = mysqli_fetch_array($result)) : ?>
 
-                        <td><?= $fila['remplazar_clave_primaria_usuarios'] ?></td>
-                        <td><?= $fila['remplazar_nombre_usuarios'] ?></td>
+                        <td><?= $fila['id'] ?></td>
+                        <td><?= $fila['nombre_usu'] ?></td>
                         <td><a href="eliminar_php">x</a><a href="actualizar.php">actualizar</a></td>
                     <?php endwhile; ?>
                 </tr>
