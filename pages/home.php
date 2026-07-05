@@ -1,15 +1,5 @@
-<?php
-
-include 'incluir/header.php';
-include 'incluir/navbar_logo.php';
-
-/* esto es para añadir la ubicacion del registro
-$ubi = $_GET["nombre_ubi"];
-*/
-?>
-
 <body>
-  <form class="w-50 mx-auto"  action="remplazar.php" method="POST">
+  <form class="w-50 mx-auto"  action="crear_registro.php" method="POST">
 
       <div class="container">
           <h1>Ingresar</h1>
@@ -21,7 +11,8 @@ $ubi = $_GET["nombre_ubi"];
         <input name="id_usuario"  class="col-8" type="text" class="form-control" id="inputID">
         <button class="col-2" type="submit" class="btn btn-primary">Acceder</button>
       </div>
-      <div name="fecha" id="fecha" class="text-muted fw-bold mb-2">Cargando fecha...</div>
+      <div name="ubicacion" class="text-muted fw-bold mb-2"><?php echo $ubi ?? 'sin ubicacion' ?></div>
+      <div name="fecha" id="fecha" class="text-muted fw-bold mb-2">Cargando fecha</div>
       <div name="hora" id="reloj" class="badge bg-dark fs-5">00:00:00</div>
     </div>
   </form>
