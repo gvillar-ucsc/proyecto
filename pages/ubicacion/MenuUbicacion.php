@@ -11,14 +11,21 @@ $result =  mysqli_query($conexion, $query);
 <body>
     <div class="container mt-5">
         <div class="row justify-content-center g-5">
-            <?php while ($fila = mysqli_fetch_array($result)) : ?>
+            <?php while ($fila = mysqli_fetch_array($result)) :
+                if(1== $fila['id_ubi'] ) {?>
 
                 <div class="col-md-4 text-center">
                     <a href="#" class="btn btn-outline-dark btn-menu">
                         <?= $fila['nombre_ubi'] ?>
                     </a>
                 </div>
-            <?php endwhile; ?>
+                <? }else {?>
+                <div class="col-md-4 text-center">
+                    <a href="#" class="btn btn-outline-dark btn-menu">
+                        <?= $fila['nombre_ubi'] ?>
+                    </a>
+                </div>
+            <?php} endwhile; ?>
 
         </div>
     </div>
