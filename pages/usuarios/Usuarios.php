@@ -1,10 +1,9 @@
 <?php
 
 include 'incluir/header.php';
-include 'incluir/navbar_accesos.php';
 
-$query = "SELECT * FROM usuarios ";
-$result =  mysqli_query($conexion, $query);
+$query_usuarios = "SELECT * FROM usuarios ";
+$result_usuarios =  mysqli_query($conexion, $query_usuarios);
 ?>
 <body>
    <div class="container d-flex align-items-end gap-3">
@@ -25,14 +24,16 @@ $result =  mysqli_query($conexion, $query);
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <?php while ($fila = mysqli_fetch_array($result)) : ?>
-
-                        <td><?= $fila['id'] ?></td>
-                        <td><?= $fila['nombre_usu'] ?></td>
-                        <td><a href="eliminar_php">x</a><a href="actualizar.php">actualizar</a></td>
-                    <?php endwhile; ?>
-                </tr>
+             <?php while ($fila_usuarios = mysqli_fetch_array($result_usuarios)) : ?>
+                    <tr>
+                        <td><?= $fila_usuarios['id'] ?></td>
+                        <td><?= $fila_usuarios['nombre_usu'] ?></td>
+                        <td>
+                            <a href="eliminar.php?id=<?= $fila_usuarios['id'] ?>" class="btn btn-danger btn-sm">x</a>
+                            <a href="actualizar.php?id=<?= $fila_usuarios['id'] ?>" class="btn btn-warning btn-sm">actualizar</a>
+                        </td>
+                    </tr>
+                <?php endwhile; ?>
             </tbody>
         </table>
     </div>
