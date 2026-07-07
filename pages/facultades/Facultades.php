@@ -1,7 +1,6 @@
 <?php
 
 include 'incluir/header.php';
-include 'incluir/navbar_accesos.php';
 
 $query = "SELECT * FROM facultades ";
 $result =  mysqli_query($conexion, $query);
