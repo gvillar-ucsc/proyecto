@@ -1,19 +1,16 @@
 <?php
-if (isset($_SESSION["username"])) {
-?>
-                    <nav class="navbar bg-body-tertiary">
-    <div class="container-fluid">
-        <a class="navbar-brand " href="./Img/LOGO.png">
-        <img src="./Img/LOGO.png" alt="Bootstrap" width="200" height="50">
-        </a>
-    </div>
-    </nav>
-    <hr>
+$usu_ingreso = $POST["id_usuario"] ?? '7';
 
- <?php }
- else {
-    ?>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+$_SESSION['usu_ingreso'] = $usu_ingreso;
+
+$query2 = "SELECT * FROM usuarios where id='{$_SESSION['usu_ingreso']}' ";
+$result2 =  mysqli_query($conexion, $query2);
+$fila2 = mysqli_fetch_assoc($result2);
+
+if (isset($_SESSION["username"]) && $fila2['tipo_usu'] == "administrador") {
+?>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
         <a class="navbar-brand" href="./Img/LOGO.png">
             <img src="./Img/LOGO.png" alt="Bootstrap" width="200" height="50">
@@ -40,6 +37,19 @@ if (isset($_SESSION["username"])) {
             //ID DE USUARIO//
         </span>
         </div>
+    </div>
+    </nav>
+    <hr>
+
+ <?php }
+ else {
+    ?>
+    
+    <nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand " href="./Img/LOGO.png">
+        <img src="./Img/LOGO.png" alt="Bootstrap" width="200" height="50">
+        </a>
     </div>
     </nav>
     <hr>

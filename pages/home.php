@@ -14,10 +14,10 @@
       <div  class="text-muted fw-bold mb-2"><?php echo  $fila['nombre_ubi'] ?? 'sin ubicacion' ?></div>
       <div name=""mostrar_fecha id="fecha" class="text-muted fw-bold mb-2">Cargando fecha</div>
       <div name="mostrar_hora" id="reloj" class="badge bg-dark fs-5">00:00:00</div>    
-      <div name="nombre_usu" id="nombre_usu" class="text-muted fw-bold mb-2"><?php echo $fila1['nombre_usu'] ?? 'sin encargado'; ?></div>    
+      <div name="nombre_usu" id="nombre_usu" class="text-muted fw-bold mb-2"><?php echo $fila3['nombre_usu'] ?? 'sin encargado'; ?></div>    
 
-      <input type="hidden" name="id_ubi" value="<?php echo $fila['id_ubi'] ?? ''; ?>">
-      <input type="hidden" name="id" value="<?php echo $fila1['id'] ?? ''; ?>">
+      <input type="hidden" name="id_ubi" value="<?php echo $_SESSION["id_ubi"]; ?>">
+      <input type="hidden" name="id" value="<?php echo $fila3['id'] ?? ''; ?>">
       <input type="hidden" name="hora" id="input_hora_secreto" value="">
       <input type="hidden" name="fecha" id="input_fecha_secreto">
     </div>

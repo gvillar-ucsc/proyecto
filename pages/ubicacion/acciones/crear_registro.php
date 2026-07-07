@@ -1,4 +1,5 @@
 <?php
+session_start();
   require '../../../base_datos/conexion.php';
 
     // obtener los datos del formulario   
@@ -32,6 +33,24 @@
     // ejecutar la consulta
     $result =  mysqli_query($conexion, $query);
 
-    header("Location: /xampp/proyecto/index.php?p=home");
+        
+    $query1 = "SELECT * FROM usuarios where id='$id' ";
+    $result1 =  mysqli_query($conexion, $query1);
+    $fila1 = mysqli_fetch_assoc($result1);
+
+    if ($fila1['tipo_usu']=="administrador"){
+        $_SESSION['encargado']= $id_usuario;
+
+      header("Location: /xampp/proyecto/index.php?p=home");
+    exit();  
+    }else if ($fila1['tipo_usu']=="guardia"){
+        $_SESSION['encargado']= $id_usuario;
+    header("Location: /xampp/proyecto/index.php?p=ubicacion/MenuUbicacion");
     exit();
+    } else {
+    $_SESSION['encargado']= $id;
+
+    header("Location: /xampp/proyecto/index.php?p=estadistica/Estadisticas");
+    exit();
+    }
 ?>

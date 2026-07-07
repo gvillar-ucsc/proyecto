@@ -1,10 +1,12 @@
 <?php
 
-include 'incluir/header.php';
-include 'incluir/navbar_accesos.php';
 $query = "SELECT * FROM ubicaciones ";
 $result =  mysqli_query($conexion, $query);
 
+
+$query1 = "SELECT * FROM usuarios where id='{$_SESSION['encargado']} ' ";
+$result1 =  mysqli_query($conexion, $query1);
+$fila1 = mysqli_fetch_assoc($result1);
 
 
 ?>
@@ -12,20 +14,21 @@ $result =  mysqli_query($conexion, $query);
     <div class="container mt-5">
         <div class="row justify-content-center g-5">
             <?php while ($fila = mysqli_fetch_array($result)) :
-                if(1== $fila['id_ubi'] ) {?>
+                if(1== $fila['id_ubi'] ) :?>
 
                 <div class="col-md-4 text-center">
-                    <a href="#" class="btn btn-outline-dark btn-menu">
-                        <?= $fila['nombre_ubi'] ?>
+                    <a href="index.php" class="btn btn-outline-dark btn-menu">
+                        <?php echo $fila['nombre_ubi']; ?>
                     </a>
                 </div>
-                <? }else {?>
+                <?php else :?>
                 <div class="col-md-4 text-center">
                     <a href="#" class="btn btn-outline-dark btn-menu">
-                        <?= $fila['nombre_ubi'] ?>
+                        <?php echo $fila['nombre_ubi']; ?>
                     </a>
                 </div>
-            <?php} endwhile; ?>
+            <?php endif; ?>
+       <?php endwhile; ?>
 
         </div>
     </div>
