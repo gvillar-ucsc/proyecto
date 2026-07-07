@@ -16,9 +16,10 @@ if (isset($fila3['tipo_usu']) && $fila3['tipo_usu'] == "administrador") {
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item"><a class="nav-link active" href="index.php?p=usuarios/Usuarios">Usuarios</a></li>
-                <li class="nav-item"><a class="nav-link active" href="#">Accesos</a></li>
-                <li class="nav-item"><a class="nav-link active" href="./Estadisticas.html">Estadísticas</a></li>
-                <li class="nav-item"><a class="nav-link active" href="./Facultades.html">Facultades</a></li>
+                <li class="nav-item"><a class="nav-link active" href="index.php">Accesos</a></li>
+                <li class="nav-item"><a class="nav-link active" href="index.php?p=estadistica/Estadisticas">Estadísticas</a></li>
+                <li class="nav-item"><a class="nav-link active" href="index.php?p=facultades/Facultades">Facultades</a></li>
+                <li class="nav-item"><a class="nav-link active" href="index.php?p=ubicacion/Ubicacion">Ubicacion</a></li>
             </ul>
             <span class="navbar-text">
                 Usuario: <?php echo $_SESSION['usuario_ingreso']; ?>
