@@ -8,5 +8,5 @@
   </head>
 <?php
   
-  require 'base_datos/conexion.php';
+  require __DIR__ . '/../base_datos/conexion.php';
 ?>

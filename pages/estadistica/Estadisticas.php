@@ -1,13 +1,11 @@
 <?php
 
 include 'incluir/header.php';
-include 'incluir/navbar_accesos.php';
 
-/* para hacer el mapa de calor hay que agrupar el total de usuarios dentro de una ubicacion con la ubicacion
-es decir hay que hacer un select con 2 tablas
-*/
-$query_1 = "SELECT ubic.nombre_ubi, COUNT(reg.tipo_reg) as total_usuarios FROM ubicaciones ubic JOIN registro reg ON ubic.id_ubi = reg.id_reg_ubi WHERE reg.tipo_reg = 'ingreso' GROUP BY ubic.nombre_ubi";
-$result =  mysqli_query($conexion, $query_1);
+
+$query_1 = "SELECT id_ubi, ubic.nombre_ubi, sum(case when tipo_reg='ingreso' then 1 else 0 end) AS ingreso, sum(case when tipo_reg='salida' then 1 else 0 end) AS salida  FROM ubicaciones ubic JOIN registro reg ON ubic.id_ubi = reg.id_reg_ubi  GROUP BY ubic.nombre_ubi";
+$result1 =  mysqli_query($conexion, $query_1);
+
 
 ?>
 <body>
@@ -26,15 +24,16 @@ $result =  mysqli_query($conexion, $query_1);
                 </tr>
             </thead>
             <tbody>
-                <?php while ($fila = mysqli_fetch_array($result)) : ?>
-
+                <?php while ($fila1 = mysqli_fetch_array($result1)) : ?>
+                    <?php $gente_dentro = ($fila1['ingreso'] - $fila1['salida']); ?>
                     <tr>
-                        <td><?= $fila['nombre_ubi'] ?></td>
+                        <td><?= $fila1['nombre_ubi'] ?></td>
 
-                        /*no remplazes total_usuarios porque es el nombre del campo del resultado del select*/
-                        <td><?= $fila['total_usuarios'] ?></td>
+                        <td><?= $gente_dentro ?> usuarios</td>
 
-                        <td><a href="se supone que hay un apartado de estadistica, lo dice en el mockap"></a></td>
+                        <td>
+                            <a href="index.php?p=estadistica/graficos&id_ubi=<?= $fila1['id_ubi']; ?>">ver graficos</a>
+                        </td>
                     </tr>
                 <?php endwhile; ?>
 
