@@ -1,5 +1,5 @@
 <body>
-  <form class="w-50 mx-auto"  action="pages/ubicacion/acciones/crear_registro.php" method="POST">
+  <form class="w-50 mx-auto"  action="pages/registro/acciones/crear_registro.php" method="POST">
 
       <div class="container">
           <h1>Ingresar</h1>

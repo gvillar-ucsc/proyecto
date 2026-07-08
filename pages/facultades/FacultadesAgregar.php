@@ -1,21 +1,4 @@
 
-    <?php 
-        $id_fac = $_GET["id"]; 
-        $select_facultades_id = "SELECT * FROM facultades WHERE id_fac = " . $id_fac . ";";
-        $mostrar_una_facultad = mysqli_query($conexion, $select_facultades_id);
-
-        if ($resultado_facultad = mysqli_fetch_assoc($mostrar_una_facultad)) {
-
-            $nombre_fac = $resultado_facultad["nombre_fac"];
-            $calle_fac = $resultado_facultad["calle_fac"];
-            $calle_numero = $resultado_facultad["calle_numero"];
-            $id_fac_ubi = $resultado_facultad["id_fac_ubi"];
-        } else {
-            header("Location: /xampp/proyecto/index.php?p=facultades/Facultades");
-            exit();
-        }
-    ?>
-
 <body>
     <div class="container d-flex align-items-end gap-3 mt-4">
         <h1>Facultades</h1>
@@ -26,34 +9,33 @@
     <div class="container">
         <hr>
         
-        <form class="w-50 mx-auto mt-5" action="pages/facultades/acciones/update.php" method="POST">
-            <input type="hidden" name="id_fac" value="<?php echo $id_fac?>">
-
+        <form class="w-50 mx-auto mt-5" action="pages/facultades/acciones/crear.php" method="POST">
+            
             <div class="row mb-3 align-items-center">
                 <label for="nombre" class="col-sm-4 col-form-label">Nombre</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" id="nombre" name="nombre_fac" value="<?=$nombre_fac ?>" required>
+                    <input type="text" class="form-control" id="nombre" name="nombre_fac" required>
                 </div>
             </div>
             
             <div class="row mb-3 align-items-center">
                 <label for="calle" class="col-sm-4 col-form-label">Calle</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" id="calle" name="calle_fac" value="<?= $calle_fac ?>" required>
+                    <input type="text" class="form-control" id="calle" name="calle_fac" required>
                 </div>
             </div>
             
             <div class="row mb-3 align-items-center">
                 <label for="numeracion" class="col-sm-4 col-form-label">Numeración</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" id="numeracion" name="calle_numero" value="<?= $calle_numero ?>" required>
+                    <input type="text" class="form-control" id="numeracion" name="calle_numero" required>
                 </div>
             </div>
           
             <div class="row mb-4 align-items-center">
                 <label for="id_fac_ubi" class="col-sm-4 col-form-label">Ubicación</label>
                 <div class="col-sm-8">
-                    <select class="form-select" name="id_fac_ubi" id="id_fac_ubi" value="<?= $id_fac_ubi ?>" required>
+                    <select class="form-select" name="id_fac_ubi" id="id_fac_ubi" required>
                         <?php include 'pages/ubicacion/acciones/select.php'; ?>
                         <?php while ($ubi = mysqli_fetch_array($mostrar_ubicaciones)) :?>
 
