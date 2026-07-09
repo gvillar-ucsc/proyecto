@@ -13,16 +13,27 @@ $resultado_ingr_sal_id = mysqli_query($conexion, $consulta_ingr_sal_id);
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
+  //esto esta copiado y pegado de chart ignoren todo a no ser que les escriba un comentario en una parte
   const ctx = document.getElementById('myChart');
 
   new Chart(ctx, {
-    type: 'bar',
+// type indica el tipo de gráfico. Opciones disponibles:
+    // 'bar'       -> Gráfico de barras (vertical u horizontal)
+    // 'line'      -> Gráfico de líneas (ideal para tendencias temporales)
+    // 'doughnut'  -> Gráfico de dona (el que querías para los roles)
+    // 'pie'       -> Gráfico de pastel / tarta tradicional
+    // 'radar'     -> Gráfico de radar / araña (para comparar múltiples variables)
+    // 'polarArea' -> Gráfico de área polar (similar al de pastel, pero con radios diferentes)
+    // 'bubble'    -> Gráfico de burbujas (3 dimensiones de datos)
+    // 'scatter'   -> Gráfico de dispersión (puntos basados en coordenadas X e Y)
+    type: 'bar',    type: 'bar',
     data: {
       labels: ['ingreso', 'salida'],
       datasets: [{
         label: '',
         data: [
-            <?php while ($fila_estadistica = mysqli_fetch_array($resultado_ingr_sal_id)) : ?>
+            <?php// en esta parte van los valores
+             while ($fila_estadistica = mysqli_fetch_array($resultado_ingr_sal_id)) : ?>
                 <?= $fila_estadistica['total_ingresos']?>, 
                 <?= $fila_estadistica['total_salidas']?>
             <?php endwhile; ?>

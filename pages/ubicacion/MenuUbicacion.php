@@ -1,30 +1,26 @@
 <?php
 
-$query = "SELECT * FROM ubicaciones ";
-$result =  mysqli_query($conexion, $query);
+$query_ubicacion = "SELECT * FROM ubicaciones ";
+$result_ubicacion =  mysqli_query($conexion, $query_ubicacion);
 
-
-$query1 = "SELECT * FROM usuarios where id='{$_SESSION['encargado']} ' ";
-$result1 =  mysqli_query($conexion, $query1);
-$fila1 = mysqli_fetch_assoc($result1);
 
 
 ?>
 <body>
     <div class="container mt-5">
         <div class="row justify-content-center g-5">
-            <?php while ($fila = mysqli_fetch_array($result)) :
-                if(1== $fila['id_ubi'] ) :?>
+            <?php while ($fila_result_ubicacion = mysqli_fetch_array($result_ubicacion)) :
+                if(1== $fila_result_ubicacion['id_ubi'] ) :?>
 
                 <div class="col-md-4 text-center">
-                    <a href="index.php" class="btn btn-outline-dark btn-menu">
-                        <?php echo $fila['nombre_ubi']; ?>
+                    <a href="#" class="btn btn-outline-dark btn-menu">
+                        <?php echo $fila_result_ubicacion['nombre_ubi']; ?>
                     </a>
                 </div>
                 <?php else :?>
                 <div class="col-md-4 text-center">
-                    <a href="#" class="btn btn-outline-dark btn-menu">
-                        <?php echo $fila['nombre_ubi']; ?>
+                    <a href="index.php" class="btn btn-outline-dark btn-menu">
+                        <?php echo $fila_result_ubicacion['nombre_ubi']; ?>
                     </a>
                 </div>
             <?php endif; ?>

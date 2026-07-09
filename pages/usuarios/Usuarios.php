@@ -1,7 +1,7 @@
 <?php
 
 include 'incluir/header.php';
-
+// contula sql
 $query_usuarios = "SELECT * FROM usuarios ";
 $result_usuarios =  mysqli_query($conexion, $query_usuarios);
 ?>

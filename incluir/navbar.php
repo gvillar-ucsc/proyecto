@@ -1,8 +1,6 @@
 <?php
-// BORRAMOS la línea $_SESSION['usu_ingreso'] = ""; para que no destruya los datos
-
-// Cambiamos la condición para revisar lo que devolvió la base de datos en el index.php
-if (isset($fila3['tipo_usu']) && $fila3['tipo_usu'] == "administrador") {
+// solo si el tipo de usuario existe y es == administrador se muestra el nav completo y de otra forma solo se muestra el logo
+if (isset($fila_result_select_usuarios_id['tipo_usu']) && $fila_result_select_usuarios_id['tipo_usu'] == "administrador") {
 ?>
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -31,6 +29,7 @@ if (isset($fila3['tipo_usu']) && $fila3['tipo_usu'] == "administrador") {
 
 <?php 
 } else { 
+    // esto es lo que ve el usuario que no es admin
 ?>
     
 <nav class="navbar bg-body-tertiary">
