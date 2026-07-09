@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-07-2026 a las 01:51:36
+-- Tiempo de generación: 09-07-2026 a las 21:39:51
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -34,6 +34,16 @@ CREATE TABLE `facultades` (
   `calle_numero` int(11) DEFAULT NULL,
   `id_fac_ubi` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `facultades`
+--
+
+INSERT INTO `facultades` (`id_fac`, `nombre_fac`, `calle_fac`, `calle_numero`, `id_fac_ubi`) VALUES
+(1, 'ewq', 'ewq', 4321, 1),
+(2, 'eqweq', 'ewqewq', 3213, 1),
+(3, 'ewq', 'dsadsss', 213, 1),
+(4, 'ewqewq', 'ewq', 321, 1);
 
 -- --------------------------------------------------------
 
@@ -89,7 +99,58 @@ INSERT INTO `registro` (`id_reg`, `id_reg_ubi`, `tipo_reg`, `hora_reg`, `id_reg_
 (31, 1, 'ingreso', '15:41:49', 5, '06-07-2026', 1),
 (32, 1, 'salida', '19:48:05', 0, '06-07-2026', 1),
 (33, 1, 'ingreso', '19:48:34', 0, '06-07-2026', 1),
-(34, 1, 'salida', '19:50:17', 5, '06-07-2026', 1);
+(34, 1, 'salida', '19:50:17', 5, '06-07-2026', 1),
+(35, 1, 'ingreso', '19:59:24', 5, '06-07-2026', 1),
+(36, 1, 'salida', '20:01:28', 5, '06-07-2026', 1),
+(37, 1, 'salida', '20:01:35', 1, '06-07-2026', 5),
+(38, 1, 'salida', '20:01:53', 5, '06-07-2026', 39),
+(39, 1, 'ingreso', '20:02:01', 0, '06-07-2026', 1),
+(40, 1, 'ingreso', '20:02:04', 5, '06-07-2026', 39),
+(41, 1, 'salida', '20:15:07', 0, '06-07-2026', 1),
+(42, 1, 'ingreso', '20:28:43', 5, '06-07-2026', 1),
+(43, 1, 'salida', '20:28:50', 1, '06-07-2026', 1),
+(44, 1, 'ingreso', '20:29:40', 1, '06-07-2026', 1),
+(45, 1, 'salida', '20:31:12', 1, '06-07-2026', 1),
+(46, 1, 'ingreso', '20:31:38', 1, '06-07-2026', 1),
+(47, 1, 'salida', '20:34:04', 1, '06-07-2026', 1),
+(48, 1, 'ingreso', '20:35:59', 1, '06-07-2026', 1),
+(49, 1, 'salida', '20:36:26', 1, '06-07-2026', 1),
+(50, 1, 'ingreso', '20:41:31', 1, '06-07-2026', 1),
+(51, 1, 'salida', '21:59:08', 1, '06-07-2026', 1),
+(52, 1, 'ingreso', '22:05:12', 1, '06-07-2026', 1),
+(53, 1, 'salida', '22:15:24', 1, '06-07-2026', 1),
+(54, 1, 'ingreso', '22:30:19', 1, '06-07-2026', 1),
+(55, 1, 'salida', '22:37:35', 1, '06-07-2026', 1),
+(56, 1, 'ingreso', '22:37:42', 1, '06-07-2026', 5),
+(57, 1, 'ingreso', '22:37:55', 5, '06-07-2026', 1),
+(58, 1, 'salida', '22:52:26', 1, '06-07-2026', 1),
+(59, 1, 'ingreso', '22:53:02', 1, '06-07-2026', 1),
+(60, 1, 'salida', '22:57:13', 1, '06-07-2026', 1),
+(61, 1, 'ingreso', '13:08:55', 1, '07-07-2026', 1),
+(62, 1, 'salida', '13:14:24', 1, '07-07-2026', 1),
+(63, 1, 'ingreso', '13:18:57', 5, '07-07-2026', 1),
+(64, 1, 'salida', '13:21:14', 1, '07-07-2026', 1),
+(65, 1, 'ingreso', '13:21:23', 1, '07-07-2026', 1),
+(66, 1, 'salida', '13:22:31', 1, '07-07-2026', 1),
+(67, 1, 'salida', '13:24:19', 1, '07-07-2026', 5),
+(68, 1, 'ingreso', '13:24:22', 5, '07-07-2026', 0),
+(69, 1, 'ingreso', '13:24:26', 5, '07-07-2026', 1),
+(70, 1, 'ingreso', '01:18:54', 1, '08-07-2026', 5),
+(71, 1, 'salida', '01:23:12', 5, '08-07-2026', 1),
+(72, 1, 'ingreso', '02:30:13', 1, '08-07-2026', 1),
+(73, 1, 'salida', '02:30:16', 1, '08-07-2026', 1),
+(74, 1, 'ingreso', '02:30:22', 1, '08-07-2026', 1),
+(75, 1, 'ingreso', '02:31:01', 1, '08-07-2026', 12),
+(76, 1, 'salida', '12:50:59', 12, '09-07-2026', 39),
+(77, 1, 'salida', '12:51:06', 0, '09-07-2026', 5),
+(78, 1, 'salida', '13:18:18', 5, '09-07-2026', 1),
+(79, 1, 'salida', '13:18:22', 5, '09-07-2026', 12),
+(80, 1, 'ingreso', '13:18:28', 12, '09-07-2026', 5),
+(81, 1, 'ingreso', '15:03:24', 12, '09-07-2026', 1),
+(82, 1, 'salida', '15:07:42', 5, '09-07-2026', 1),
+(83, 1, 'ingreso', '15:07:45', 5, '09-07-2026', 12),
+(84, 1, 'salida', '15:16:37', 12, '09-07-2026', 5),
+(85, 1, 'salida', '15:26:15', 5, '09-07-2026', 12);
 
 -- --------------------------------------------------------
 
@@ -109,7 +170,7 @@ CREATE TABLE `ubicaciones` (
 --
 
 INSERT INTO `ubicaciones` (`id_ubi`, `nombre_ubi`, `calle_fac`, `calle_numero`) VALUES
-(1, 'inicio', 'inicio', 0);
+(1, 'inicioewq', 'inicioewq', 0);
 
 -- --------------------------------------------------------
 
@@ -128,9 +189,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre_usu`, `tipo_usu`) VALUES
-(1, 'admin', 'administrador'),
 (5, 'inicio', 'guardia'),
-(7, 'no registrado', 'no registrado');
+(7, 'no registrado', 'no registrado'),
+(12, 'ewqeq', 'administrador');
 
 --
 -- Índices para tablas volcadas
@@ -168,25 +229,25 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `facultades`
 --
 ALTER TABLE `facultades`
-  MODIFY `id_fac` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_fac` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `registro`
 --
 ALTER TABLE `registro`
-  MODIFY `id_reg` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id_reg` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- AUTO_INCREMENT de la tabla `ubicaciones`
 --
 ALTER TABLE `ubicaciones`
-  MODIFY `id_ubi` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_ubi` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
