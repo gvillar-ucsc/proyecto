@@ -4,17 +4,17 @@
       <div class="container">
           <h1>Ingresar</h1>
           <hr>
-          <?php // este es un formulario que usa js para obtener la hora y variables del index con input ocultos para funcionar?>
+          <?= // este es un formulario que usa js para obtener la hora y variables del index con input ocultos para funcionar?>
     <div class="container-fluid">
       <div class="row d-flex justify-content-around">
         <label class="col-2" for="inputID" class="form-label">ID</label>
         <input name="id_usuario"  class="col-8" type="text" class="form-control" id="inputID">
         <button class="col-2" type="submit" class="btn btn-primary">Acceder</button>
       </div>
-      <div  class="text-muted fw-bold mb-2"><?php echo  $fila['nombre_ubi'] ?? 'Sin Ubicacion' ?></div>
+      <div  class="text-muted fw-bold mb-2"><?php echo  $fila['nombre_ubi'] ?? 'sin ubicacion' ?></div>
       <div name=""mostrar_fecha id="fecha" class="text-muted fw-bold mb-2">Cargando fecha</div>
       <div name="mostrar_hora" id="reloj" class="badge bg-dark fs-5">00:00:00</div>    
-      <div name="nombre_usu" id="nombre_usu" class="text-muted fw-bold mb-2"><?php echo $fila_result_select_usuarios_id['nombre_usu'] ?? 'Sin Encargado'; ?></div>    
+      <div name="nombre_usu" id="nombre_usu" class="text-muted fw-bold mb-2"><?php echo $fila_result_select_usuarios_id['nombre_usu'] ?? 'sin encargado'; ?></div>    
 
       <input type="hidden" name="id_ubi" value="<?php echo $_SESSION["id_ubi"]; ?>">
       <input type="hidden" name="id" value="<?php echo $fila_result_select_usuarios_id['id'] ?? ''; ?>">
