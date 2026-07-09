@@ -5,10 +5,7 @@ session_start();
 // incluimos el archivo header.php de tal modo que al iniciar este archivo se crea todo lo que cotenga dentro header.php
 include 'incluir/header.php';
 
-// si no se reconoce el id o esta vacio para quien ingreso su id sera 7 que es el id de todo quien no tenemos registro
-if (!isset($_SESSION['usu_ingreso']) || empty($_SESSION['usu_ingreso'])) {
-    $_SESSION['usu_ingreso'] = 7; 
-}
+
 
 // es necesario guardar glovalmente el usuario que ingreso para que el archivo que valida si es guardia, admin o usuario comun reaccione correctamente
 $usu_ingreso = $_SESSION['usu_ingreso'];
