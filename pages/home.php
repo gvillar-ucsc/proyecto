@@ -4,7 +4,7 @@
       <div class="container">
           <h1>Ingresar</h1>
           <hr>
-          <?= // este es un formulario que usa js para obtener la hora y variables del index con input ocultos para funcionar?>
+          <?php // este es un formulario que usa js para obtener la hora y variables del index con input ocultos para funcionar?>
     <div class="container-fluid">
       <div class="row d-flex justify-content-around">
         <label class="col-2" for="inputID" class="form-label">ID</label>

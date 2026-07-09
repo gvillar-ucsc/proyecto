@@ -1,10 +1,10 @@
 <?php
-$id_ubi = $_GET["id_ubi"];
+$id_ubi = intval($_GET["id_ubi"]);
 
 $consulta_ingr_sal_id = "SELECT COUNT(CASE WHEN tipo_reg = 'Ingreso' THEN 1 END) as total_ingresos, COUNT(CASE WHEN tipo_reg = 'Salida' THEN 1 END) as total_salidas FROM registro WHERE id_reg_ubi=".$id_ubi ;
 $resultado_ingr_sal_id = mysqli_query($conexion, $consulta_ingr_sal_id);
 
-
+$fila_estadistica = mysqli_fetch_assoc($resultado_ingr_sal_id);
 ?>
 <div class="container">
   <canvas id="myChart"></canvas>
@@ -13,36 +13,30 @@ $resultado_ingr_sal_id = mysqli_query($conexion, $consulta_ingr_sal_id);
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
-  //esto esta copiado y pegado de chart ignoren todo a no ser que les escriba un comentario en una parte
   const ctx = document.getElementById('myChart');
 
   new Chart(ctx, {
-// type indica el tipo de gráfico. Opciones disponibles:
-    // 'bar'       -> Gráfico de barras (vertical u horizontal)
-    // 'line'      -> Gráfico de líneas (ideal para tendencias temporales)
-    // 'doughnut'  -> Gráfico de dona (el que querías para los roles)
-    // 'pie'       -> Gráfico de pastel / tarta tradicional
-    // 'radar'     -> Gráfico de radar / araña (para comparar múltiples variables)
-    // 'polarArea' -> Gráfico de área polar (similar al de pastel, pero con radios diferentes)
-    // 'bubble'    -> Gráfico de burbujas (3 dimensiones de datos)
-    // 'scatter'   -> Gráfico de dispersión (puntos basados en coordenadas X e Y)
-    type: 'bar',    type: 'bar',
+    // type indica el tipo de gráfico. Opciones disponibles:
+    // 'bar', 'line', 'doughnut', 'pie', 'radar', 'polarArea'
+    type: 'bar', 
     data: {
-      labels: ['ingreso', 'salida'],
+      labels: ['Ingresos', 'Salidas'],
       datasets: [{
-        label: '',
+        label: 'Flujo de Accesos',
         data: [
-            <?php// en esta parte van los valores
-             while ($fila_estadistica = mysqli_fetch_array($resultado_ingr_sal_id)) : ?>
-                <?= $fila_estadistica['total_ingresos']?>, 
-                <?= $fila_estadistica['total_salidas']?>
-            <?php endwhile; ?>
-
+          // Inyectamos directamente los dos valores numéricos separados por una coma
+          <?php echo intval($fila_estadistica['total_ingresos']); ?>, 
+          <?php echo intval($fila_estadistica['total_salidas']); ?>
+        ],
+        backgroundColor: [
+          'rgba(54, 162, 235, 0.5)', // Color para ingresos
+          'rgba(255, 99, 132, 0.5)'  // Color para salidas
         ],
         borderWidth: 1
       }]
     },
     options: {
+      responsive: true,
       scales: {
         y: {
           beginAtZero: true

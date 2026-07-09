@@ -13,6 +13,7 @@ if ($user = mysqli_fetch_assoc($result)) {
     $tipo_usu = $user["tipo_usu"];
     $id = $user["id"];
 } else {
+    
     header("Location: ../../../index.php?p=usuarios/Usuarios");
 }?>
 <body>
