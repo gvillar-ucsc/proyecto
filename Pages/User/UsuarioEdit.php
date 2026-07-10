@@ -80,9 +80,18 @@ $categoria_u = $row["categoria_u"];
             <div class="row mb-3">
                 <label class="col-sm-4 col-form-label">Categoría</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" name="categoria_u" value="<?php echo $categoria_u; ?>">
+ 
+                    <select class="form-select" name="categoria_u" aria-label="Default select example">
+                      <option selected><?php echo $categoria_u; ?></option>
+                      <option value="Guncionario">funcionario</option>
+                      <option value="Gocente">docente</option>
+                      <option value="Estudiante">estudiante</option>
+                      <option value="Visitante">visitante</option>
+                      <option value="Guardia">guardia</option>
+                      <option value="Administrador">administrador</option>
+                    </select>
                 </div>
-            </div>
+            
             <div class="text-center">
                 <button type="submit" name="Editar" class="btn btn-primary">Editar</button>
                 <a href="../User/Usuarios.php" class="btn btn-secondary">Cancelar</a>

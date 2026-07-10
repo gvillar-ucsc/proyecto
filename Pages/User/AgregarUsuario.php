@@ -13,6 +13,7 @@ if (isset($_POST['Guardar'])) {
     header("Location: ../User/Usuarios.php");
     exit();
 }
+
 ?>
 <!doctype html>
 <html lang="es">
@@ -65,15 +66,20 @@ if (isset($_POST['Guardar'])) {
                 </div>
             </div>
             <div class="row mb-3">
-                <label class="col-sm-4 col-form-label">Categoría</label>
+                <label class="col-sm-4 col-form-label">categoria</label>
                 <div class="col-sm-8">
-                    <select class="form-select" name="categoria_u aria-label="Default select example">
-                      <option selected>Seleccionar categoria:</option>
-                      <option value="categoria_u">Guardia</option>
-                      <option value="categoria_u">Administrador</option>
+                    <select class="form-select" name="categoria_u" aria-label="Default select example">
+                      <option selected>visitante</option>
+                      <option value="Guncionario">funcionario</option>
+                      <option value="Gocente">docente</option>
+                      <option value="Estudiante">estudiante</option>
+                      <option value="Visitante">visitante</option>
+                      <option value="Guardia">guardia</option>
+                      <option value="Administrador">administrador</option>
                     </select>
                 </div>
             </div>
+            
             <div class="text-center">
                 <button type="submit" name="Guardar" class="btn btn-primary">Guardar Usuario</button>
                 <a href="../User/Usuarios.php" class="btn btn-secondary">Cancelar</a>
