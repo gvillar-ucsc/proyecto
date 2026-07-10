@@ -7,8 +7,11 @@ if (isset($_SESSION['id_ubi'])) {
 
     $id_ubi = $_SESSION['id_ubi'];
 
-    $consulta = "SELECT * FROM ubicaciones WHERE id_ubi = '$id_ubi'";
-    $resultado = mysqli_query($conexion, $consulta);
+$id_ubi_seguro = mysqli_real_escape_string($conexion, $id_ubi);
+
+// 2. Usamos la variable limpia en la consulta
+$consulta = "SELECT * FROM ubicaciones WHERE id_ubi = '$id_ubi_seguro'";
+$resultado = mysqli_query($conexion, $consulta);
 
     if ($resultado && mysqli_num_rows($resultado) > 0) {
         $fila = mysqli_fetch_assoc($resultado);

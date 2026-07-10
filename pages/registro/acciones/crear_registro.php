@@ -23,8 +23,19 @@ if (($fila_result_select_suma_tipo_reg['ingreso'] - $fila_result_select_suma_tip
     $tipo_registro = "error";
 }
 
-// Insertar en la BD
-$query_insert = "INSERT INTO registro (id_reg_ubi,tipo_reg,hora_reg,id_reg_usu_encargado,fecha,id_reg_usu_ingreso) VALUES ('$id_ubi', '$tipo_registro', '$hora','$id', '$fecha', '$id_usuario')";
+// 1. Asegurar y limpiar cada variable antes de meterla al INSERT
+$id_ubi_seguro        = mysqli_real_escape_string($conexion, $id_ubi);
+$tipo_registro_seguro = mysqli_real_escape_string($conexion, $tipo_registro);
+$hora_seguro          = mysqli_real_escape_string($conexion, $hora);
+$id_encargado_seguro  = mysqli_real_escape_string($conexion, $id); // Tu variable $id
+$fecha_seguro         = mysqli_real_escape_string($conexion, $fecha);
+$id_usuario_seguro    = mysqli_real_escape_string($conexion, $id_usuario);
+
+// 2. Armar la consulta utilizando SÓLO las variables seguras
+$query_insert = "INSERT INTO registro (id_reg_ubi, tipo_reg, hora_reg, id_reg_usu_encargado, fecha, id_reg_usu_ingreso) 
+                 VALUES ('$id_ubi_seguro', '$tipo_registro_seguro', '$hora_seguro', '$id_encargado_seguro', '$fecha_seguro', '$id_usuario_seguro')";
+
+// 3. Ejecutar la consulta
 $result_insert = mysqli_query($conexion, $query_insert);
 
 // Validar privilegios para redirigir
