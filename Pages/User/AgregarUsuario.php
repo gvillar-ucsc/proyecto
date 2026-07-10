@@ -71,12 +71,13 @@ if (isset($_POST['Guardar'])) {
                 <label class="col-sm-4 col-form-label">Categoría</label>
                 <div class="col-sm-8">
                     <input type="text" class="form-control" name="categoria_u">
+                    <select class="form-select" aria-label="Default select example">
+                      <option selected>Open this select menu</option>
+                      <option value="1">Guardia</option>
+                      <option value="2">Administrador</option>
+                    </select>
                 </div>
             </div>
-            <select class="form-select" aria-label="Default select example">
-  <option selected>Open this select menu</option>
-  <option value="1">One</option>
-</select>
             <div class="text-center">
                 <button type="submit" name="Guardar" class="btn btn-primary">Guardar Usuario</button>
                 <a href="../User/Usuarios.php" class="btn btn-secondary">Cancelar</a>
