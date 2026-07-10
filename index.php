@@ -20,15 +20,18 @@ $select_usuarios_id = "SELECT * FROM usuarios where id='{$_SESSION['encargado_id
 $result_select_usuarios_id = mysqli_query($conexion, $select_usuarios_id);
 $fila_result_select_usuarios_id = mysqli_fetch_assoc($result_select_usuarios_id);
 
-//consulta si la ubiacion si el id esta existe y de no existir es 1 , un valor de inicio
+// Consulta si la ubicación existe en la URL; de no existir, el valor por defecto es 1
 if (isset($_GET['id_ubi'])) {
-    $_SESSION["id_ubi"] = $_GET['id_ubi'];
+    $_SESSION['id_ubi'] = $_GET['id_ubi'];
 } elseif (!isset($_SESSION['id_ubi'])) {
-    $_SESSION["id_ubi"] = 1; // Ubicación por defecto
+    $_SESSION['id_ubi'] = 1; // Ubicación por defecto
 }
 
-// con el valor global se consulta la ubicacion para que en home.php pueda mostrar el nombre de la ubiacion, no el id
-$select_ubicacion_id = "SELECT * FROM ubicaciones where id_ubi='{$_SESSION["id_ubi"]}' ";
+// AQUÍ ESTÁ EL TRUCO: Limpiamos el valor de la sesión antes de hacer el SELECT
+$id_ubi_seguro = mysqli_real_escape_string($conexion, $_SESSION['id_ubi']);
+
+// Con el valor global seguro, consultamos la ubicación
+$select_ubicacion_id = "SELECT * FROM ubicaciones where id_ubi='$id_ubi_seguro'"; // Usa la variable limpia
 $result_select_ubicacion_id = mysqli_query($conexion, $select_ubicacion_id);
 $fila_select_ubicacion_id = mysqli_fetch_assoc($result_select_ubicacion_id);
 

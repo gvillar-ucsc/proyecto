@@ -20,7 +20,7 @@ if (isset($fila_result_select_usuarios_id['tipo_usu']) && $fila_result_select_us
                 <li class="nav-item"><a class="nav-link active" href="index.php?p=ubicacion/Ubicacion">Ubicacion</a></li>
             </ul>
             <span class="navbar-text">
-                Usuario: <?php echo $_SESSION['usuario_ingreso']; ?>
+                Usuario: <?php echo $_SESSION['usu_ingreso']; ?>
             </span>
         </div>
     </div>

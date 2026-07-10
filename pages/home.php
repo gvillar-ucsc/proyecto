@@ -1,3 +1,20 @@
+<?php
+include 'incluir/header.php';
+
+$fila = null;
+
+if (isset($_SESSION['id_ubi'])) {
+
+    $id_ubi = $_SESSION['id_ubi'];
+
+    $consulta = "SELECT * FROM ubicaciones WHERE id_ubi = '$id_ubi'";
+    $resultado = mysqli_query($conexion, $consulta);
+
+    if ($resultado && mysqli_num_rows($resultado) > 0) {
+        $fila = mysqli_fetch_assoc($resultado);
+    }
+}
+?>
 <body>
   <form class="w-50 mx-auto"  action="pages/registro/acciones/crear_registro.php" method="POST">
 
@@ -11,7 +28,7 @@
         <input name="id_usuario"  class="col-8" type="text" class="form-control" id="inputID">
         <button class="col-2" type="submit" class="btn btn-primary">Acceder</button>
       </div>
-      <div  class="text-muted fw-bold mb-2"><?php echo  $fila['nombre_ubi'] ?? 'sin ubicacion' ?></div>
+      <div  class="text-muted fw-bold mb-2"><?php echo $fila['nombre_ubi'] ?? 'sin ubicacion' ?></div>
       <div name=""mostrar_fecha id="fecha" class="text-muted fw-bold mb-2">Cargando fecha</div>
       <div name="mostrar_hora" id="reloj" class="badge bg-dark fs-5">00:00:00</div>    
       <div name="nombre_usu" id="nombre_usu" class="text-muted fw-bold mb-2"><?php echo $fila_result_select_usuarios_id['nombre_usu'] ?? 'sin encargado'; ?></div>    
