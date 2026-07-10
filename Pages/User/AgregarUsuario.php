@@ -13,6 +13,9 @@ if (isset($_POST['Guardar'])) {
     header("Location: ../User/Usuarios.php");
     exit();
 }
+
+    $consulta = "INSERT into usuarios (nombre_u, categoria_u) VALUES ('$usuario_u', '$categoria_u')";
+    mysqli_query($conexion, $consulta);
 ?>
 <!doctype html>
 <html lang="es">
@@ -70,6 +73,10 @@ if (isset($_POST['Guardar'])) {
                     <input type="text" class="form-control" name="categoria_u">
                 </div>
             </div>
+            <select class="form-select" aria-label="Default select example">
+  <option selected>Open this select menu</option>
+  <option value="1">One</option>
+</select>
             <div class="text-center">
                 <button type="submit" name="Guardar" class="btn btn-primary">Guardar Usuario</button>
                 <a href="../User/Usuarios.php" class="btn btn-secondary">Cancelar</a>
